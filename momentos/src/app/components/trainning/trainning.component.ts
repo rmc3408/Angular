@@ -4,13 +4,17 @@ type userDatatype = {
   name: string;
   age: number;
 }
+type animalsDatatype = {
+  name: string;
+  type: string;
+}
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-trainning',
+  templateUrl: './trainning.component.html',
+  styleUrls: ['./trainning.component.css']
 })
-export class UserComponent implements OnInit {
+export class TrainningComponent implements OnInit {
   public readonly name: string = 'Ontario Street'
   public readonly postalCode: string = 'M4X 1N2'
   public isToggleMessage: boolean = false
@@ -24,6 +28,13 @@ export class UserComponent implements OnInit {
   isActive = true
 
   @Output() changeNumEvent: EventEmitter<number> = new EventEmitter()
+
+  public readonly listAnimals: animalsDatatype[] = [
+    { name: 'turca', type: 'Dog' },
+    { name: 'caique', type: 'Bird' },
+    { name: 'Fire', type: 'Horse' },
+    { name: 'Teethy', type: 'Aligator' },
+  ]
 
   constructor() { }
 

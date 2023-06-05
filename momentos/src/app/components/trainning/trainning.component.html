@@ -33,3 +33,11 @@
 <div class="block-topic">
   <button (click)="toChangeNumber()">Change number event</button>
 </div>
+
+<!-- List of rendering -->
+<div class="block-topic">
+  <h2>Animals</h2>
+  <ol>
+    <li *ngFor="let animal of listAnimals">Type is {{ animal.type }} and name is {{ animal.name }}</li>
+  </ol>
+</div>
