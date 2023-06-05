@@ -25,7 +25,7 @@
   <h2>Home location is {{ streetName }}</h2>
   <h2>Home postal code {{ postalCode }}</h2>
   
-  <button (click)="toogleMessage()">Click</button>
+  <button mat-raised-button color="primary" (click)="toogleMessage()">Show</button>
   <h2 *ngIf="isToggleMessage">Message showing by toogle</h2>
 </div>
 
@@ -37,9 +37,9 @@
 <!-- List of rendering -->
 <div class="block-topic">
   <h2>Animals</h2>
-  <ol>
-    <li *ngFor="let animal of listAnimals">Type is {{ animal.type }} and name is {{ animal.name }}</li>
-  </ol>
+  <mat-list>
+    <mat-list-item *ngFor="let animal of listAnimals">Type is {{ animal.type }} and name is {{ animal.name }}</mat-list-item>
+  </mat-list>
 </div>
 
 <!-- Transforming Data Using Pipes -->
@@ -61,10 +61,10 @@
 
 <div class="block-topic">
   <h2>Animals</h2>
-  <ol>
-    <li *ngFor="let animal of listAnimals">
+  <mat-list>
+    <mat-list-item *ngFor="let animal of listAnimals">
       Type is {{ animal.type }}
-      <button (click)="removeAnimal(animal)">REMOVE</button>
-    </li>
-  </ol>
+      <button mat-flat-button color="warn" (click)="removeAnimal(animal)">REMOVE</button>
+    </mat-list-item>
+  </mat-list>
 </div>

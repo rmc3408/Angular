@@ -13,7 +13,7 @@ export type animalsDatatype = {
 @Component({
   selector: 'app-trainning',
   templateUrl: './trainning.component.html',
-  styleUrls: ['./trainning.component.css']
+  styleUrls: ['./trainning.component.css'],
 })
 export class TrainningComponent implements OnInit {
   public readonly streetName: string = 'Ontario Street'
