@@ -1,0 +1,43 @@
+<!-- Data Binding -->
+<!-- Directive Structural Conditional -->
+<div class="block-topic" *ngIf="userData.name == 'John Doe'; else nameNotFound">
+  <p>full name is {{ userData.name }} and age is {{ userData.age }}</p>
+</div>
+<ng-template #nameNotFound>
+  <div class="block-topic-wrong">
+    <p>Wrong full name is {{ userData.name }}</p>
+  </div>
+</ng-template>
+
+<!-- Two way binding - Forms and Models -->
+<div class="block-topic">
+  <h2>Two way Data binding</h2>
+  <form>
+    <input type="text" name="fullName" placeholder="digite nome" [(ngModel)]="fullName" />
+  </form>
+  <h1 *ngIf="fullName !== ''">Your name is {{ fullName }}</h1>
+</div>
+
+<!-- Directive Atributes -->
+<div class="block-topic">
+  <h2 [ngStyle]="{ 'font-size': size + 'px', 'color': color}">Directive of styles</h2>
+  <h2 [ngClass]="classes">Directive of classes</h2>
+  <h2 *ngIf="isActive">Directive Structural of IF-Else</h2>
+</div>
+
+<!-- Transforming Data Using Pipes -->
+<div class="block-topic">
+  <h2>Home location is {{ streetName | uppercase }}</h2>
+</div>
+
+<!-- Events -->
+<div class="block-topic">
+  
+  <button mat-raised-button color="primary" (click)="toogleMessage()">Show</button>
+  <h3 *ngIf="isToggleMessage">Message hidden by toogle</h3>
+  <a *ngIf="isToggleMessage" routerLink="www.google.ca">Wrong link</a>
+  <a *ngIf="isToggleMessage" routerLink="/list">Right link</a>
+  
+</div>
+
+<app-data [userName]="userData.name" [userData]="userData" (changeNumEvent)="fromEmitterChangeNumber()"></app-data>

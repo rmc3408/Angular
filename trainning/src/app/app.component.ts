@@ -7,14 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'momentos';
-  appName = 'John';
-  userData = {
-    name: 'John Doe',
-    age: 28
-  }
-
-  fromEmitterChangeNumber(): void {
-    console.log('Parent')
-    this.userData.age = this.userData.age + 1
-  }
 }
