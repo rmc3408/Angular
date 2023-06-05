@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AnimalsService } from 'src/app/services/animals.service';
 
 type userDatatype = {
   name: string;
   age: number;
 }
-type animalsDatatype = {
+export type animalsDatatype = {
   name: string;
   type: string;
 }
@@ -29,7 +30,7 @@ export class TrainningComponent implements OnInit {
 
   @Output() changeNumEvent: EventEmitter<number> = new EventEmitter()
 
-  public readonly listAnimals: animalsDatatype[] = [
+  public listAnimals: animalsDatatype[] = [
     { name: 'turca', type: 'Dog' },
     { name: 'caique', type: 'Bird' },
     { name: 'Fire', type: 'Horse' },
@@ -37,7 +38,8 @@ export class TrainningComponent implements OnInit {
   ]
   public fullName: string = ''
 
-  constructor() { }
+
+  constructor(private animalService: AnimalsService) { }
 
   ngOnInit(): void {
   }
@@ -49,6 +51,11 @@ export class TrainningComponent implements OnInit {
   toChangeNumber(): void {
     console.log('Child')
     this.changeNumEvent.emit()
+  }
+
+  removeAnimal(animal: animalsDatatype): void {
+    console.log('removendo animal...', animal)
+    this.listAnimals = this.animalService.remove(this.listAnimals, animal)
   }
 
 }

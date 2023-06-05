@@ -57,3 +57,14 @@
   </form>
   <h1 *ngIf="fullName !== ''">Your name is {{ fullName }}</h1>
 </div>
+
+
+<div class="block-topic">
+  <h2>Animals</h2>
+  <ol>
+    <li *ngFor="let animal of listAnimals">
+      Type is {{ animal.type }}
+      <button (click)="removeAnimal(animal)">REMOVE</button>
+    </li>
+  </ol>
+</div>
