@@ -1,2 +1,12 @@
-<p>Describing user name is {{ userName }}</p>
-<p>full name is {{ userData.name }} and age is {{ userData.age }}</p>
+<div class="block-topic" *ngIf="userData.name == 'John Doe'; else nameNotFound">
+  <p>Describing user name is {{ userName }}</p>
+  <p>full name is {{ userData.name }} and age is {{ userData.age }}</p>
+
+</div>
+
+<ng-template #nameNotFound>
+  <div class="block-topic-wrong">
+    <p>Wrong user name is {{ userName }}</p>
+    <p>With full name is {{ userData.name }}</p>
+  </div>
+</ng-template>
