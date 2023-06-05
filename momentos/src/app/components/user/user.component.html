@@ -1,12 +1,35 @@
+<!-- Data Binding -->
 <div class="block-topic" *ngIf="userData.name == 'John Doe'; else nameNotFound">
   <p>Describing user name is {{ userName }}</p>
   <p>full name is {{ userData.name }} and age is {{ userData.age }}</p>
-
 </div>
 
+<!-- Directive Structural Conditional -->
 <ng-template #nameNotFound>
   <div class="block-topic-wrong">
     <p>Wrong user name is {{ userName }}</p>
     <p>With full name is {{ userData.name }}</p>
   </div>
 </ng-template>
+
+<!-- Directive Atributes -->
+<div class="block-topic">
+  <h2 [ngStyle]="{ 'font-size': size + 'px', 'color': color}">Directive of styles</h2>
+  <h2 [ngClass]="classes">Directive of classes</h2>
+  <h2 *ngIf="isActive">Directive Structural of IF-Else</h2>
+</div>
+
+<!-- Events -->
+<div class="block-topic">
+  <a href="www.google.ca">Google</a>
+  <h2>Home location is {{ name }}</h2>
+  <h2>Home postal code {{ postalCode }}</h2>
+  
+  <button (click)="toogleMessage()">Click</button>
+  <h2 *ngIf="isToggleMessage">Message showing by toogle</h2>
+</div>
+
+<!-- Emitting event to parent component -->
+<div class="block-topic">
+  <button (click)="toChangeNumber()">Change number event</button>
+</div>

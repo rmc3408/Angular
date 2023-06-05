@@ -13,4 +13,8 @@ export class AppComponent {
     age: 28
   }
 
+  fromEmitterChangeNumber(): void {
+    console.log('Parent')
+    this.userData.age = this.userData.age + 1
+  }
 }

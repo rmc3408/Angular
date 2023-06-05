@@ -1,6 +1,4 @@
-<div class="block-topic">
-  <h1>Main App</h1>
-</div>
-<app-home></app-home>
-<app-user [userName]="appName" [userData]="userData"></app-user>
-<app-directives></app-directives>
+
+<h1>App Component</h1>
+
+<app-user [userName]="appName" [userData]="userData" (changeNumEvent)="fromEmitterChangeNumber()"></app-user>
