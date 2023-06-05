@@ -25,8 +25,8 @@ export class ListComponent implements OnInit {
   }
 
   removeAnimal(animal: animalsDatatype): void {
-    console.log('removendo animal...', animal)
-    this.listAnimals = this.animalService.remove(this.listAnimals, animal)
+    this.listAnimals = this.listAnimals.filter((bicho) => bicho.name !== animal.name)
+    this.animalService.remove(animal.id)
   }
 
   getAnimals(): void {
