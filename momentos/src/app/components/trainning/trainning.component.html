@@ -22,7 +22,7 @@
 <!-- Events -->
 <div class="block-topic">
   <a href="www.google.ca">Google</a>
-  <h2>Home location is {{ name }}</h2>
+  <h2>Home location is {{ streetName }}</h2>
   <h2>Home postal code {{ postalCode }}</h2>
   
   <button (click)="toogleMessage()">Click</button>
@@ -40,4 +40,20 @@
   <ol>
     <li *ngFor="let animal of listAnimals">Type is {{ animal.type }} and name is {{ animal.name }}</li>
   </ol>
+</div>
+
+<!-- Transforming Data Using Pipes -->
+<div class="block-topic">
+  <h2>{{ streetName | uppercase }}</h2>
+</div>
+
+
+<!-- Two way binding - Forms and Models -->
+<div class="block-topic">
+  <h2>Two way Data binding</h2>
+  <form>
+    <input type="text" name="fullName" placeholder="digite nome" [(ngModel)]="fullName" />
+    <input type="submit" value="SEND">
+  </form>
+  <h1 *ngIf="fullName !== ''">Your name is {{ fullName }}</h1>
 </div>

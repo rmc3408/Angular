@@ -15,7 +15,7 @@ type animalsDatatype = {
   styleUrls: ['./trainning.component.css']
 })
 export class TrainningComponent implements OnInit {
-  public readonly name: string = 'Ontario Street'
+  public readonly streetName: string = 'Ontario Street'
   public readonly postalCode: string = 'M4X 1N2'
   public isToggleMessage: boolean = false
 
@@ -35,6 +35,7 @@ export class TrainningComponent implements OnInit {
     { name: 'Fire', type: 'Horse' },
     { name: 'Teethy', type: 'Aligator' },
   ]
+  public fullName: string = ''
 
   constructor() { }
 
