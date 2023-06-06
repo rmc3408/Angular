@@ -1,0 +1,40 @@
+<!-- 
+  <textarea rows="6" [value]="newPost" #postInput></textarea>
+  <button (click)="onAddPostContent(postInput)">Save Post</button>
+  <textarea rows="6" [(ngModel)]="changeValue"></textarea>
+  <button (click)="onAddPostContent()">Save Post</button>
+  <hr />
+  <p>{{changeValue}}</p>
+  
+-->
+
+<!-- <mat-card>
+    <mat-form-field>
+      <mat-label>Enter Title</mat-label>
+      <input matInput [(ngModel)]="changeTitle" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Leave a content</mat-label>
+      <textarea matInput placeholder="It makes me feel..." [(ngModel)]="changeContent"></textarea>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onAddPostContent()">Save Post</button></mat-card-actions>
+</mat-card> -->
+
+<form (submit)="onAddPostContent(postForm)" #postForm="ngForm">
+  <mat-card>
+    <mat-form-field>
+      <mat-label>Enter Title</mat-label>
+      <input matInput name="Title" ngModel required minlength="3" #title="ngModel"/>
+      <mat-error *ngIf="title.invalid">Enter Appropriated Title</mat-error>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Leave a content</mat-label>
+      <textarea matInput rows="4" ngModel required #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Enter Content data</mat-error>
+    </mat-form-field>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Save Post</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
