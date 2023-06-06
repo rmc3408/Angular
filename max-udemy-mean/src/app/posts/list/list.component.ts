@@ -23,7 +23,7 @@ export class ListComponent implements OnInit, OnDestroy {
   constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
-      this.posts = this.postsService.getPosts()
+      this.postsService.getPosts()
       // It will redo, if something change on Post[] in service
       this.postsSubscribed = this.postsService.listenerUpdate()
         .subscribe((postList: Post[]) => this.posts = postList)

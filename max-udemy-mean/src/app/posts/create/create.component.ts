@@ -9,7 +9,7 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit {
-  public newPost: Post = { title: '', content: '' };
+  public newPost: Post = { id: null, title: '', content: '' };
   public changeTitle: string = '';
   public changeContent: string = '';
   //@Output() public postCreated = new EventEmitter<Post>();
