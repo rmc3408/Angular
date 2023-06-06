@@ -8,9 +8,9 @@ import { Post } from './posts/posts.model';
 })
 export class AppComponent {
   title = 'max-udemy-mean';
-  public storedPosts: Post[] = [];
+  //public storedPosts: Post[] = [];
 
-  onPostAdded(post: Post) {
-    this.storedPosts.push(post);
-  }
+  // onPostAdded(post: Post) {
+  //   this.storedPosts.push(post);
+  // }
 }

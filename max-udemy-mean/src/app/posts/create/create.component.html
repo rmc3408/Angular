@@ -25,12 +25,12 @@
   <mat-card>
     <mat-form-field>
       <mat-label>Enter Title</mat-label>
-      <input matInput name="Title" ngModel required minlength="3" #title="ngModel"/>
+      <input matInput name="Title" minlength="3" required ngModel #title="ngModel"/>
       <mat-error *ngIf="title.invalid">Enter Appropriated Title</mat-error>
     </mat-form-field>
     <mat-form-field >
       <mat-label>Leave a content</mat-label>
-      <textarea matInput rows="4" ngModel required #content="ngModel"></textarea>
+      <textarea matInput name="Content" rows="4" required ngModel #content="ngModel"></textarea>
       <mat-error *ngIf="content.invalid">Enter Content data</mat-error>
     </mat-form-field>
     <mat-card-actions>
