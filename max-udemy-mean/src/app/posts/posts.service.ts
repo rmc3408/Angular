@@ -16,7 +16,7 @@ export class PostsService {
   getPosts() {
     this.http.get<GetPostRequest>(this.apiURL).subscribe(result => {
       this.posts = result.posts
-      this.updatedPosts.next(this.posts)
+      this.updatedPosts.next([...this.posts])
     })
     //return [...this.posts]
   }
@@ -27,8 +27,8 @@ export class PostsService {
 
   addPost(title: string, content: string) {
     const newPost: Post = { id: null, title, content }
-    this.http.post<{ message: string }>(this.apiURL, newPost).subscribe((result) => {
-      console.log(result)
+    this.http.post<GetPostRequest>(this.apiURL, newPost).subscribe((result) => {
+      //console.log(result)
       this.posts.push(newPost)
       this.updatedPosts.next([...this.posts])
     })   
