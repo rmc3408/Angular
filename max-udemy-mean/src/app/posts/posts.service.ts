@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Subject } from 'rxjs';
-import { GetPostRequest, Post } from "./posts.model";
+import { GetPostRequest, Post, PostDB, createPostRequest } from "./posts.model";
 import { HttpClient } from "@angular/common/http";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,14 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   getPosts() {
-    this.http.get<GetPostRequest>(this.apiURL).subscribe(result => {
-      this.posts = result.posts
+    this.http.get<GetPostRequest>(this.apiURL)
+    .pipe(map((preData: GetPostRequest) => {
+      return preData.posts.map((post: PostDB) => {
+        return ({ id: post._id, title: post.title, content: post.content })
+      })
+    }))
+    .subscribe(posData => {
+      this.posts = posData
       this.updatedPosts.next([...this.posts])
     })
     //return [...this.posts]
@@ -26,11 +33,19 @@ export class PostsService {
   }
 
   addPost(title: string, content: string) {
-    const newPost: Post = { id: null, title, content }
-    this.http.post<GetPostRequest>(this.apiURL, newPost).subscribe((result) => {
-      //console.log(result)
-      this.posts.push(newPost)
+    this.http.post<createPostRequest>(this.apiURL, { title, content })
+    .subscribe((preData: createPostRequest) => {
+     const newPostCreated: Post = { id: preData.posts._id, title: preData.posts.title, content: preData.posts.content }
+      this.posts.push(newPostCreated)
       this.updatedPosts.next([...this.posts])
     })   
+  }
+
+  deletePost(id: string) {
+    this.http.delete(this.apiURL + '/' + id).subscribe(() => {
+      const filteredPosts = this.posts.filter((post) => post.id !== id)
+      this.posts = [...filteredPosts]
+      this.updatedPosts.next([...filteredPosts])
+    })
   }
 }

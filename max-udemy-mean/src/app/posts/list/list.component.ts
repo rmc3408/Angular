@@ -33,5 +33,8 @@ export class ListComponent implements OnInit, OnDestroy {
     this.postsSubscribed.unsubscribe();
   }
   
+  onDelete(id: string): void {
+    this.postsService.deletePost(id)
+  }
 
 }
