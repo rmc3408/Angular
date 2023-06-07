@@ -13,6 +13,10 @@ export class PostsService {
   private updatedPosts = new Subject<Post[]>()
 
   constructor(private http: HttpClient) {}
+  
+  listenerUpdate() {
+    return this.updatedPosts.asObservable()
+  }
 
   getPosts() {
     this.http.get<GetPostRequest>(this.apiURL)
@@ -26,10 +30,6 @@ export class PostsService {
       this.updatedPosts.next([...this.posts])
     })
     //return [...this.posts]
-  }
-
-  listenerUpdate() {
-    return this.updatedPosts.asObservable()
   }
 
   addPost(title: string, content: string) {
