@@ -2,5 +2,10 @@
   <button mat-icon-button class="example-icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>{{appName}}</span>
+  <span><a routerLink="/">{{appName}}</a></span>
+  <div class="spacer"></div>
+  <ul>
+    <li><a mat-button routerLink="/create" routerLinkActive="active">Create</a></li>
+  </ul>
+
 </mat-toolbar>

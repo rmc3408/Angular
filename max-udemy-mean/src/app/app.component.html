@@ -4,6 +4,7 @@
   <app-create (postCreated)="onPostAdded($event)"></app-create>
   <app-post-list [posts]="storedPosts"></app-post-list> 
   -->
-  <app-create></app-create>
-  <app-post-list></app-post-list>
+  <router-outlet></router-outlet>
+  <!-- <app-create></app-create>
+  <app-post-list></app-post-list> -->
 </main>
