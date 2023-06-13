@@ -54,5 +54,20 @@ router.delete('/:id', async (req: any, res: any) => {
   
 })
 
+router.put('/:id', async (req: any, res: any) => {
+
+  const id: string = req.params.id
+  const { title, content } = req.body
+
+  Post.updateOne({ _id: id }, { title, content }).then((data: any) => {
+    //console.log(data)
+    res.status(200).json({
+      message: 'Posts updated sucessfully!',
+      posts: data.modifiedCount !== 0
+    })
+  })
+  
+})
+
 
 module.exports = router

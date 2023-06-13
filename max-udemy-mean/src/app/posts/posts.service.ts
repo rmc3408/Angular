@@ -32,6 +32,11 @@ export class PostsService {
     //return [...this.posts]
   }
 
+  getPostbyID(id: string) {
+    const post = this.posts.find(p => p.id === id)
+    return post
+  }
+
   addPost(title: string, content: string) {
     this.http.post<createPostRequest>(this.apiURL, { title, content })
     .subscribe((preData: createPostRequest) => {
@@ -47,5 +52,10 @@ export class PostsService {
       this.posts = [...filteredPosts]
       this.updatedPosts.next([...filteredPosts])
     })
+  }
+
+  updatePost(id: string, title: string, content: string) {
+    const post: Post = { id, title, content }
+    this.http.put(this.apiURL + '/' + id, post).subscribe((response) => console.log(response))
   }
 }
