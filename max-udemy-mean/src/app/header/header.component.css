@@ -11,8 +11,9 @@ ul {
 a {
   text-decoration: none;
   color: aliceblue;
+  visibility: visible;
 }
 
-.active {
-  background:blueviolet;
+.disabled {
+  visibility: hidden;
 }

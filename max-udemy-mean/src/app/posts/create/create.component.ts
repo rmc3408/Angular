@@ -14,20 +14,24 @@ export class CreateComponent implements OnInit {
   //public changeTitle: string = '';
   //public changeContent: string = '';
   private isEditable: string = '';
+  public isLoading: boolean = true
   //@Output() public postCreated = new EventEmitter<Post>();
 
   constructor(private postsService: PostsService, public route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((param) => {
+
       if (param.has('id')) {
         this.isEditable = param.get('id')!
-        this.post = this.postsService.getPostbyID(this.isEditable)!
-        //console.log(this.post)
+        this.postsService.getPostbyID(this.isEditable).subscribe((posData) => {
+          this.post = posData[0]
+        })
       } else {
         this.isEditable = ''
         this.post = {id: '', title: '', content: ''}
       }
+      setTimeout(()=> this.isLoading = false, 400)
     })
   }
 

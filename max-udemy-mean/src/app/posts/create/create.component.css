@@ -4,3 +4,7 @@ mat-card {
   margin: auto;
 }
 
+.spin {
+  margin: 0 auto;
+  flex: 1 1 auto;
+}

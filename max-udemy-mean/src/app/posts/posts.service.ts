@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { GetPostRequest, Post, PostDB, createPostRequest } from "./posts.model";
 import { HttpClient } from "@angular/common/http";
 import { map } from 'rxjs/operators';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PostsService {
   private posts: Post[] = []
   private updatedPosts = new Subject<Post[]>()
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   
   listenerUpdate() {
     return this.updatedPosts.asObservable()
@@ -33,8 +34,14 @@ export class PostsService {
   }
 
   getPostbyID(id: string) {
-    const post = this.posts.find(p => p.id === id)
-    return post
+    return this.http.get<GetPostRequest>(this.apiURL + '/' + id)
+    .pipe(map((preData: GetPostRequest) => {
+      return preData.posts.map((post: PostDB) => {
+        return ({ id: post._id, title: post.title, content: post.content })
+      })
+    }))
+    
+    //const post = this.posts.find(p => p.id === id)
   }
 
   addPost(title: string, content: string) {
@@ -43,6 +50,7 @@ export class PostsService {
      const newPostCreated: Post = { id: preData.posts._id, title: preData.posts.title, content: preData.posts.content }
       this.posts.push(newPostCreated)
       this.updatedPosts.next([...this.posts])
+      this.router.navigate(["/"])
     })   
   }
 
@@ -56,6 +64,13 @@ export class PostsService {
 
   updatePost(id: string, title: string, content: string) {
     const post: Post = { id, title, content }
-    this.http.put(this.apiURL + '/' + id, post).subscribe((response) => console.log(response))
+    this.http.put(this.apiURL + '/' + id, post).subscribe((response) => {
+      const updatedPost = [...this.posts]
+      const oldPostIndex = updatedPost.findIndex(p => p.id === id)
+      updatedPost[oldPostIndex] = post
+      this.posts = updatedPost
+      this.updatedPosts.next([...this.posts])
+      this.router.navigate(["/"])
+    })
   }
 }

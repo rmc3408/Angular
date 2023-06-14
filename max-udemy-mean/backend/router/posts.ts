@@ -40,6 +40,18 @@ router.get('/', async (req: any, res: any) => {
   
 })
 
+router.get('/:id', async (req: any, res: any) => {
+
+  const id: string = req.params.id
+  Post.findOne({ _id: id }).then((data: any) => {
+    res.status(200).json({
+      message: 'Post fetched sucessfully!',
+      posts: [data]
+    })
+  })
+  
+})
+
 router.delete('/:id', async (req: any, res: any) => {
 
   const id: string = req.params.id

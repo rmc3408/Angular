@@ -20,15 +20,15 @@
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="onAddPostContent()">Save Post</button></mat-card-actions>
 </mat-card> -->
-
-<form (submit)="savePostContent(postForm)" #postForm="ngForm">
+<mat-spinner class="spin" diameter="200" *ngIf="isLoading"></mat-spinner>
+<form (submit)="savePostContent(postForm)" #postForm="ngForm" *ngIf="!isLoading">
   <mat-card>
     <mat-form-field>
       <mat-label>Enter Title</mat-label>
-      <input matInput name="Title" minlength="3" required [ngModel]="post.title" #title="ngModel"/>
+      <input matInput name="Title" minlength="3" required [ngModel]="post.title" #title="ngModel" />
       <mat-error *ngIf="title.invalid">Enter Appropriated Title</mat-error>
     </mat-form-field>
-    <mat-form-field >
+    <mat-form-field>
       <mat-label>Leave a content</mat-label>
       <textarea matInput name="Content" rows="4" required [ngModel]="post.content" #content="ngModel"></textarea>
       <mat-error *ngIf="content.invalid">Enter Content data</mat-error>

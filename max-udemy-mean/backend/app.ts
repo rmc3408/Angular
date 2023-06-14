@@ -5,7 +5,6 @@ const debug = require('debug')("node-angular")
 
 const app = express()
 
-
 // Express configurations
 const corsOptions = {
   origin: ['http://localhost:4200'],
