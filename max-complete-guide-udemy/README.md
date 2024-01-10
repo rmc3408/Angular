@@ -12,11 +12,11 @@ Master Angular (formerly "Angular 2") and build awesome, reactive web apps with 
 ### Life cycle of Course Outline:
 | Section | Topics | Completed |
 | ---: | --- | :---: |
-| Section 01 | Getting Started |  |
-| Section 02 | The Basics |  | <br>
+| Section 01 | Getting Started | &check; |
+| Section 02 | The Basics | &check; | <br>
 | Section 03 | Course Project - The Basics | &check; | <br>
-| Section 04 | Debugging | &check; | <br>
-| Section 05 | Components & DataBinding Deep Dive | &check; | <br>
+| Section 04 | Debugging |  | <br>
+| Section 05 | Components & DataBinding Deep Dive |  | <br>
 | Section 06 | Course Project - Components and DataBinding |  | <br>
 | Section 07 | Directives |  | <br>
 | Section 08 | Course Project - Directives |  | <br>

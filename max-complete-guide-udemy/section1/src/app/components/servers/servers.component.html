@@ -1,23 +1,60 @@
-
+<br /><br />
 <hr />
+
+<h1>Structural Directives - * - FOR LOOP</h1>
+<app-server *ngFor="let s of servers;"></app-server>
+
+<div *ngFor="let s of servers; let i = index">{{s}} - {{i}}</div>
+
+@for (item of servers; track item) {
+  <li>angular v17 - {{ item }}</li>
+}
+
+<br /><br />
+<hr />
+<h1>Structural Directives - * - IF/Else</h1>
+<p *ngIf="serverCreated; else noServer">Name created: {{ clientName }}</p>
+<ng-template #noServer><p>{{ serverCreationStatus }}</p></ng-template>
+
+@if (serverCreated) { <p>IF condition on works in Angular version 17</p> }
+
+<br /><br />
+<hr />
+<h1>Two-way data binding</h1>
 <label>Client Name</label>
 <input type="text" class="form-control" [(ngModel)]="clientName" />
 <h3>{{ clientName }}</h3>
 
+<br /><br />
 <hr />
+
+<h1>Input Binding (input) </h1>
 <label>Server Name</label>
 <input type="text" class="form-control" (input)="onUpdateServerName($event)" />
 <h3>{{ serverName }}</h3>
 
+<br /><br />
 <hr />
+
+<h1>Event binding($event)</h1>
 <button class="btn btn-warning" [disabled]="!allowServer" (click)="onCreatServer(clientName)">Add Server</button>
 <!-- <p>{{ allowServer }}</p> --> 
+
+<br /><br />
+<hr />
+
+<h1>Property binding [] and StringInterpolation {{ 0 }}</h1>
 <p [innerText]="serverCreationStatus"></p>
+<p>{{clientName}}</p>
 
+<br /><br />
 <hr />
-<app-server></app-server>
-<app-server></app-server>
 
-<hr />
-<div app-warning></div>
-<div class="app-success"></div>
+<h1>Selectors</h1>
+<ul>
+  <li>"element name"</li><app-server></app-server>
+  <li>"[attribute selector]"</li><div app-warning></div>
+  <li>".class selector"</li><div class="app-success"></div>
+</ul>
+
+<br /><br />

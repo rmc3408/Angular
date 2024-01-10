@@ -11,5 +11,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'section1';
+  title = 'section1 - Basics of Angular';
 }

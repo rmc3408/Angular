@@ -10,6 +10,8 @@ export class ServersComponent {
   public serverCreationStatus: string = 'No server was created';
   public serverName: string = '';
   public clientName: string = 'Initial';
+  public serverCreated: boolean = false;
+  public servers: string[] = ['TestServer1', 'TestServer2'];
 
   constructor() {
     console.log('COMPONENT: ServersComponent');
@@ -19,6 +21,8 @@ export class ServersComponent {
   }
 
   onCreatServer(client: string) {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server created on Client name is ' + client;
   }
 
