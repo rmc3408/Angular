@@ -1,6 +1,8 @@
-<app-header></app-header>
+<app-header 
+  (pageRouterEvent)="onNavigate($event)"
+ ></app-header>
 <main class="main">
   <p>Main content</p>
-  <app-recipe></app-recipe>
-  <app-shop></app-shop>
+  <app-recipe *ngIf="page === 'recipe'"></app-recipe>
+  <app-shop *ngIf="page === 'shop'"></app-shop>
 </main>

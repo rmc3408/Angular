@@ -15,4 +15,8 @@ export class ShopComponent {
     new Grocery('Elderberries', 2),
     new Grocery('Figs', 4)
   ]
+
+  handleAddItem(newGrocery: Grocery) {
+    this.groceries.push(newGrocery);
+  }
 }
