@@ -3,35 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "grocery": {
+    "directives-final": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
         "@schematics/angular:component": {
-          "skipTests": true,
           "standalone": false
         },
         "@schematics/angular:directive": {
-          "skipTests": true,
           "standalone": false
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:interceptor": {
-          "skipTests": true
         },
         "@schematics/angular:pipe": {
-          "skipTests": true,
           "standalone": false
-        },
-        "@schematics/angular:resolver": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
         }
       },
       "root": "",
@@ -41,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/grocery",
+            "outputPath": "dist/directives-final",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -86,11 +68,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "grocery:build:production"
+              "buildTarget": "directives-final:build:production"
             },
             "development": {
-              "buildTarget": "grocery:build:development",
-              "liveReload": true
+              "liveReload": true,
+              "buildTarget": "directives-final:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "grocery:build"
+            "buildTarget": "directives-final:build"
           }
         },
         "test": {
