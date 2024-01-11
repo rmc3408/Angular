@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 export type ServerElement = { name: string, type: string, content: string };
 
@@ -27,5 +27,9 @@ export class AppComponent {
       name: evt.serverName,
       content: evt.serverContent
     });
+  }
+
+  onChangeFirst() {
+    this.serverElements[0].name = 'Changed';
   }
 }

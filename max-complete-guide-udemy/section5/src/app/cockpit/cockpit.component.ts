@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -10,9 +10,13 @@ export class CockpitComponent {
   @Output() addServer = new EventEmitter<{ serverName: string, serverContent: string }>();
   newServerName = '';
   newServerContent = '';
+  @ViewChild('srvCtn') serverContentInput: ElementRef; // local ViewChild from #srvCtn
 
   onTriggerBlueprint(name?: HTMLInputElement, content?: HTMLInputElement) {
-    if (name && content) {
+    
+    console.log(this.serverContentInput.nativeElement.value)
+    
+    if (name && content) { // local reference #srvCtn
       this.addBlueprint.emit({
         serverName: name.value,
         serverContent: content.value
