@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Recipe } from '../recipe.model';
+import { Component, Input } from '@angular/core';
+import { Recipe } from '../../shared/models/recipe.model';
+import { RecipeService } from '../../shared/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -8,15 +9,12 @@ import { Recipe } from '../recipe.model';
 })
 export class ListComponent {
   @Input() recipe: Recipe;
-  @Output() selectedEvt: EventEmitter<Recipe> = new EventEmitter<Recipe>(); 
-  
-  public recipes: Recipe[] = [
-    new Recipe('A Test Recipe', 'Recipe A contains Plant', 'https://cdn.loveandlemons.com/wp-content/uploads/2020/12/plant-based-recipes-1-580x791.jpg'),
-    new Recipe('B Test Recipe', 'Recipe B contains Meat', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/roast-beef-recipes-536cd86.jpg'),
-  ];
+  public recipes: Recipe[] = [];
 
-  onRecipeSelected(evt: Recipe) {
-    this.selectedEvt.emit(evt);
+  constructor(private recipeService: RecipeService) { }
+
+  ngOnInit() {
+    this.recipes = this.recipeService.recipes;
   }
   
 }

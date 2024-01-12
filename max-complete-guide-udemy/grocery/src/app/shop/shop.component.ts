@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Grocery } from './grocery.model';
+import { Grocery } from '../shared/models/grocery.model';
+import { ShopService } from '../shared/services/shop.service';
 
 @Component({
   selector: 'app-shop',
@@ -7,16 +8,12 @@ import { Grocery } from './grocery.model';
   styleUrl: './shop.component.css'
 })
 export class ShopComponent {
-  public groceries: Grocery[] = [
-    new Grocery('Apples', 5),
-    new Grocery('Bananas', 3),
-    new Grocery('Cherries', 10),
-    new Grocery('Dates', 1),
-    new Grocery('Elderberries', 2),
-    new Grocery('Figs', 4)
-  ]
+  public groceries: Grocery[] = []
 
-  handleAddItem(newGrocery: Grocery) {
-    this.groceries.push(newGrocery);
+  constructor(private shopService: ShopService) { }
+
+  ngOnInit() {
+    this.groceries = this.shopService.groceries;
+    this.shopService.ingAdded.subscribe((updated: Grocery[]) => this.groceries = updated);
   }
 }
