@@ -22,7 +22,7 @@ Master Angular (formerly "Angular 2") and build awesome, reactive web apps with 
 | Section 08 | Course Project - Directives | &check; | <br>
 | Section 09 | Services & Dependency Injection | &check; |<br>
 | Section 10 | Course Project - Services and Dependency Injection | &check; | <br>
-| Section 11 | Changing Pages with Routing |  |<br>
+| Section 11 | Changing Pages with Routing | &check; |<br>
 | Section 12 | Course Project - Routing |  |<br>
 | Section 13 | Observables |  |<br>
 | Section 14 | Course Project - Observables |  | <br>
