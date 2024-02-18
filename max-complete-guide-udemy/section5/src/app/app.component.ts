@@ -6,6 +6,7 @@ export type ServerElement = { name: string, type: string, content: string };
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  Encapsulation: ViewEncapsulation.None // dont add encapsulation, make like global style
 })
 export class AppComponent {
   public serverElements: ServerElement[] = [
