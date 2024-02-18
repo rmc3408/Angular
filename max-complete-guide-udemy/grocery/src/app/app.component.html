@@ -3,6 +3,5 @@
  ></app-header>
 <main class="main">
   <p>Main content</p>
-  <app-recipe *ngIf="page === 'recipe'"></app-recipe>
-  <app-shop *ngIf="page === 'shop'"></app-shop>
+  <router-outlet></router-outlet>
 </main>

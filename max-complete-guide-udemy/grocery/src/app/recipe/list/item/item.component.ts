@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../../../shared/models/recipe.model';
 import { RecipeService } from '../../../shared/services/recipe.service';
 
@@ -10,9 +11,13 @@ import { RecipeService } from '../../../shared/services/recipe.service';
 export class ItemComponent {
   @Input() public recipe: Recipe;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   onSelection() {
-    this.recipeService.selectedEvt.emit(this.recipe);
+    const recipeIDx = this.recipeService.recipes.indexOf(this.recipe);
+    this.router.navigate([recipeIDx], { relativeTo: this.route })
   }
 }
