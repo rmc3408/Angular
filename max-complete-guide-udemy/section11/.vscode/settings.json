@@ -1,0 +1,11 @@
+{
+  "angular.enable-strict-mode-prompt": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "editor.formatOnSave": true,
+  "files.saveConflictResolution": "overwriteFileOnDisk",
+  "notebook.formatOnSave.enabled": true,
+  "code-runner.saveAllFilesBeforeRun": true,
+  "notebook.experimental.remoteSave": true,
+  "code-runner.saveFileBeforeRun": true
+}

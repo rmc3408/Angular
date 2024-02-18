@@ -3,6 +3,7 @@
     <p>Add new Servers or blueprints!</p>
 
     <label>Server Name</label>
+    <!-- Local reference can be used only inside HTML #srvCtn> -->
     <input type="text" class="form-control" [(ngModel)]="newServerName" #srvName>
     
     <label>Server Content</label>
@@ -16,8 +17,10 @@
     <button
       class="btn btn-primary"
       (click)="onTriggerBlueprint()">Add Server Blueprint</button>
-    <!-- <button 
+
+    <!-- BUTTON WILL USE LOCAL REFERENCE-->
+    <button 
       class="btn btn-primary"
-      (click)="onTriggerBlueprint(srvName, srvCtn)">Add Server Blueprint</button> -->
+      (click)="onTriggerBlueprint(srvName, srvCtn)">Add Server via LOCAL</button> 
   </div>
 </div>
