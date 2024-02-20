@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../../../shared/models/recipe.model';
-import { RecipeService } from '../../../shared/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
@@ -10,14 +8,7 @@ import { RecipeService } from '../../../shared/services/recipe.service';
 })
 export class ItemComponent {
   @Input() public recipe: Recipe;
+  @Input() public index: number;
 
-  constructor(
-    private recipeService: RecipeService,
-    private router: Router,
-    private route: ActivatedRoute) { }
-
-  onSelection() {
-    const recipeIDx = this.recipeService.recipes.indexOf(this.recipe);
-    this.router.navigate([recipeIDx], { relativeTo: this.route })
-  }
+  constructor() { }
 }

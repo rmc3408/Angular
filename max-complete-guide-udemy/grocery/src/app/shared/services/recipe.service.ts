@@ -19,7 +19,11 @@ export class RecipeService {
     return [...this._recipes];
   }
 
-  addIngredientToGroceryList(ingredients: Grocery[]) {
+  public getRecipe(index: number) {
+    return this._recipes[index];
+  }
+
+  public addIngredientToGroceryList(ingredients: Grocery[]) {
     this.groceryListService.addIngredients(ingredients)
   }
 }

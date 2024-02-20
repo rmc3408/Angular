@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
+import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { DropdownDirective } from './shared/directives/dropdown.directive';
     HeaderComponent,
     DropdownDirective,
     ...declarationMainApp,
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,

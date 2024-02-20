@@ -8,13 +8,16 @@ import { ItemComponent } from './recipe/list/item/item.component';
 import { EditComponent } from './shop/edit/edit.component';
 import { AppComponent } from './app.component';
 import { RecipeNoneSelectedComponent } from './recipe/home/home.component';
+import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
   { path: 'recipe', component: RecipeComponent,
     children: [
       { path: '', component: RecipeNoneSelectedComponent },
-      { path: ':id', component: DetailComponent },
+      { path: 'new', component: RecipeEditComponent },
+      { path: ':id', component: DetailComponent },     
+      { path: ':id/edit', component: RecipeEditComponent }
     ]
   },
   { path: 'shop', component: ShopComponent }

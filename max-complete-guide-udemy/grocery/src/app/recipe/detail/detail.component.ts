@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Recipe } from '../../shared/models/recipe.model';
 import { RecipeService } from '../../shared/services/recipe.service';
 
@@ -9,8 +10,16 @@ import { RecipeService } from '../../shared/services/recipe.service';
 })
 export class DetailComponent {
   @Input() recipe: Recipe;
+  public id: number;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService) { }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+      this.recipe = this.recipeService.getRecipe(this.id);
+    });
+  }
 
   addToBuy() {
     this.recipeService.addIngredientToGroceryList(this.recipe.ingredients);
