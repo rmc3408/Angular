@@ -1,5 +1,6 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Grocery } from "../models/grocery.model";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class ShopService {
@@ -8,7 +9,7 @@ export class ShopService {
     new Grocery('Bananas', 3850),
     new Grocery('Cherries', 2150)
   ]
-  ingAdded = new EventEmitter<Grocery[]>();
+  ingAdded = new Subject<Grocery[]>();
 
   public get groceries() {
     return [...this._groceries];
@@ -16,11 +17,11 @@ export class ShopService {
 
   handleAddItem(newGrocery: Grocery) {
     this._groceries.push(newGrocery);
-    this.ingAdded.emit(this._groceries);
+    this.ingAdded.next(this._groceries);
   }
 
   addIngredients(ingredients: Grocery[]) {
     this._groceries.push(...ingredients);
-    this.ingAdded.emit(this.groceries);
+    this.ingAdded.next(this.groceries);
   }
 }

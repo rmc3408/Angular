@@ -9,10 +9,4 @@ import { ShopService } from './shared/services/shop.service';
   styleUrl: './app.component.css',
   providers: [RecipeService, ShopService]
 })
-export class AppComponent {
-  page: string = 'shop';
-
-  onNavigate(evt: string) {
-    this.page = evt;
-  }
-}
+export class AppComponent {}

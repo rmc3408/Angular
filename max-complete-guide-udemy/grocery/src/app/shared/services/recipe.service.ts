@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Recipe } from "../models/recipe.model";
 import { Grocery } from "../models/grocery.model";
 import { ShopService } from "./shop.service";
@@ -11,7 +11,6 @@ export class RecipeService {
     new Recipe('B Recipe', 'Recipe B contains Meat', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/roast-beef-recipes-536cd86.jpg',
     [ { name: 'Meat', amount: 1}, { name: 'Eggs', amount: 2}, { name: 'Cheese', amount: 1}]),
   ];
-  public selectedEvt: EventEmitter<Recipe> = new EventEmitter<Recipe>();
 
   constructor(private groceryListService: ShopService) { }
 
