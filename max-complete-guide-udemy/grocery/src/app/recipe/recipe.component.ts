@@ -8,11 +8,11 @@ import { RecipeService } from '../shared/services/recipe.service';
   styleUrl: './recipe.component.css'
 })
 export class RecipeComponent {
-  public choosenRecipe: Recipe;
+  // public choosenRecipe: Recipe;
 
-  constructor(private recipeService: RecipeService) { }
+  // constructor(private recipeService: RecipeService) { }
 
-  ngOnInit() {
-    this.recipeService.selectedEvt.subscribe((recipe: Recipe) => this.choosenRecipe = recipe);
-  }
+  // ngOnInit() {
+  //   this.recipeService.selectedEvt.subscribe((recipe: Recipe) => this.choosenRecipe = recipe);
+  // }
 }
