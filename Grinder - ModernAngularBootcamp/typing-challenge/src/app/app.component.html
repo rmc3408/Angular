@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third has-text-centered">
+      <h1 class="title is-2">Typing Challenge</h1>
+      <p>{{randomText}}</p>
+      <!-- <input class="input" (keyup)="onTyping($event)"/> -->
+      <input class="input" (input)="onTyping($event.target.value)"/>
+      <!-- <h6>{{text}}</h6> -->
+      <!-- <div class="box" *ngIf="text === randomText"> -->
+      <div class="box" *ngIf="isWinner">
+        <h3>Sucess</h3>
+      </div>
+    </div>
+  </div>
+</div>

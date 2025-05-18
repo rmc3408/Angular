@@ -1,0 +1,19 @@
+
+
+<!-- for one post -->
+<!-- <app-card 
+  [title]="posts[0].title"
+  [imageUrl]="posts[0].imageUrl"
+  [username]="posts[0].username"
+  [content]="posts[0].content"
+></app-card> -->
+
+<app-card
+  *ngFor="let post of posts"
+  [title]="post.title"
+  [imageUrl]="post.imageUrl"
+  [username]="post.username"
+  [content]="post.content"
+>{{myPrint(post)}}</app-card>
+
+

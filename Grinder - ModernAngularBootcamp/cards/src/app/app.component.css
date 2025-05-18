@@ -1,0 +1,10 @@
+
+/* app-root not works because app-root will upload in this id.
+So, there is no app-root. */
+
+:host {
+    display:flex;
+    justify-content: center;
+    align-content:space-around;
+    flex-wrap: wrap;
+}
